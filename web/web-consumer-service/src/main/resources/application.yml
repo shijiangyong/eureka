@@ -9,4 +9,4 @@ eureka:
    # name: resttemplate-ribbon
 spring:
   application:
-    name: consumer-feugn
+    name: consumer-feign

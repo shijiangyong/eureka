@@ -54,7 +54,7 @@
         <module>web-eureka-regist</module>
         <module>web-controller</module>
         <module>web-consumer-service</module>
-        <module>web-feign</module>
+        <!--<module>web-feign</module>-->
     </modules>
 
 </project>

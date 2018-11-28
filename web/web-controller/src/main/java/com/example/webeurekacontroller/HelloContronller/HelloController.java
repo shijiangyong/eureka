@@ -20,4 +20,9 @@ public class HelloController {
         return "Hello," + name;
     }
 
+    @RequestMapping(value = "/feignHello",method = {RequestMethod.GET,RequestMethod.POST})
+    public String getAge(@RequestParam("age") Integer age){
+        return "She is a "+age+"-year-odl girl";
+    }
+
 }
