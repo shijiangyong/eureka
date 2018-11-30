@@ -55,3 +55,8 @@ mybatis:
 loginUsername: root
 loginPassword: 123456
 #http://localhost:8764/druid/sql.html  访问这个页面
+
+#开启hystrix
+feign:
+  hystrix:
+    enabled: true

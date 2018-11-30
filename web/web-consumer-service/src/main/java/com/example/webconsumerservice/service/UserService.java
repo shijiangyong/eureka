@@ -1,19 +1,18 @@
-package com.example.webconsumerservice.mapper;
+package com.example.webconsumerservice.service;
 
 import com.example.webconsumerservice.model.User;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * @author shijy
- * @Date 2018/11/29 10 : 57
+ * @Date 2018/11/30 14 : 26
  * @Descriprion
  */
-@Repository
-public interface UserMapper {
 
+public interface UserService {
     /**
      * 获取用户列表
      * @return
@@ -33,7 +32,7 @@ public interface UserMapper {
      * @param user
      * @return
      */
-    int updateUser(@Param("id") Integer id, @Param("user") User user);
+    int updateUser(Integer id,User user);
 
     /**
      * 删除用户
