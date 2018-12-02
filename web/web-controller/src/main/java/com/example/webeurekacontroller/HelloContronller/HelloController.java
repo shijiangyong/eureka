@@ -1,5 +1,6 @@
 package com.example.webeurekacontroller.HelloContronller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
+    @Value("${server.port}")
+    String port;
+
     @RequestMapping(value = "/hello",method = {RequestMethod.GET,RequestMethod.POST})
     public String getHello(@RequestParam("name") String name){
         return "Hello," + name;
@@ -25,4 +29,8 @@ public class HelloController {
         return "She is a "+age+"-year-odl girl";
     }
 
+    @RequestMapping(value = "/hi",method = {RequestMethod.GET,RequestMethod.POST})
+    public String home(@RequestParam(value = "name",defaultValue = "forezp") String name){
+        return "hi " + name + " , i am form portt : " + port;
+    }
 }

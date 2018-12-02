@@ -1,7 +1,7 @@
 package com.example.webconsumerservice.service;
 
-import com.example.webconsumerservice.controller.UserController;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Descriprion
  */
 
-@FeignClient("controller")
-//@FeignClient(name = "",configuration = UserController.class)
+@FeignClient(value = "controller",fallback = FeignServiceFallBack.class)
 public interface FeignService {
 
     /**
@@ -22,4 +21,12 @@ public interface FeignService {
      */
     @RequestMapping("/feignHello")
     String hello(@RequestParam("age") Integer age);
+
+    /**
+     * hi测试
+     * @param name
+     * @return
+     */
+    @RequestMapping("/hi")
+    String hi(String name);
 }

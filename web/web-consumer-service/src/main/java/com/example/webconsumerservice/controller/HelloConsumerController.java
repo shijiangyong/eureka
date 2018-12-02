@@ -1,5 +1,7 @@
 package com.example.webconsumerservice.controller;
 
+import com.example.webconsumerservice.service.RibbonService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +23,8 @@ public class HelloConsumerController {
 
     @Autowired
     private RestTemplate restTemplate;
-
+    @Autowired
+    private RibbonService ribbonService;
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate(){
@@ -32,5 +35,10 @@ public class HelloConsumerController {
     public ResponseEntity<String> hello(@RequestParam("name") String name){
         return restTemplate.getForEntity("http://controller/hello?name=" + name,String.class);
     }
+    @RequestMapping(value = "/hi",method = RequestMethod.GET)
+    public String shi(@RequestParam("name") String name){
+        return ribbonService.hi(name);
+    }
+
 
 }

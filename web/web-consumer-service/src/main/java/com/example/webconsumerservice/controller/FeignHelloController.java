@@ -22,4 +22,9 @@ public class FeignHelloController {
     public String hello(Integer age){
         return feignService.hello(age);
     }
+
+    @RequestMapping("/hi")
+    public String hi(@RequestParam("name") String name){
+        return feignService.hi(name);
+    }
 }
