@@ -21,16 +21,16 @@ public class HelloController {
 
     @RequestMapping(value = "/hello",method = {RequestMethod.GET,RequestMethod.POST})
     public String getHello(@RequestParam("name") String name){
-        return "Hello," + name;
+        return "Hello," + name + " , i am from  port : " + port;
     }
 
     @RequestMapping(value = "/feignHello",method = {RequestMethod.GET,RequestMethod.POST})
     public String getAge(@RequestParam("age") Integer age){
-        return "She is a "+age+"-year-odl girl";
+        return "She is a "+age+"-year-odl girl from port " + port;
     }
 
     @RequestMapping(value = "/hi",method = {RequestMethod.GET,RequestMethod.POST})
     public String home(@RequestParam(value = "name",defaultValue = "forezp") String name){
-        return "hi " + name + " , i am form portt : " + port;
+        return "hi " + name + " , i am form port : " + port;
     }
 }
